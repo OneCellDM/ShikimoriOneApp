@@ -41,7 +41,7 @@ namespace ShikimoriOneApp.ViewModels
                         {
                             if (ShikikomoriApiHandler.ApiClient is not null && _SelectedModel.Id is not null)
                             {
-                                var Data = await ShikikomoriApiHandler.ApiClient.Mangas.GetById((int)_SelectedModel.Id);
+                                ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(await ShikikomoriApiHandler.ApiClient.Mangas.GetById((long)_SelectedModel.Id)));
 
                             }
                         }

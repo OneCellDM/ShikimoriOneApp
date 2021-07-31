@@ -61,11 +61,9 @@ namespace ShikimoriOneApp.ViewModels
                         try
                         {
                             if (ShikikomoriApiHandler.ApiClient is not null && _SelectedModel.Id is not null)
-                            {
-                                var Data = await ShikikomoriApiHandler.ApiClient.Animes.GetAnime((int)_SelectedModel.Id);
+                                ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(await ShikikomoriApiHandler.ApiClient.Animes.GetAnime((int)_SelectedModel.Id)));
 
-                                 ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(Data));
-                            }
+                            
                         }
                         catch (Exception ex)
                         {

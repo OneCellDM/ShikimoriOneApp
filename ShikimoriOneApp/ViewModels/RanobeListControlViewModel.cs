@@ -44,10 +44,10 @@ namespace ShikimoriOneApp.ViewModels
                         try
                         {
                             if (ShikikomoriApiHandler.ApiClient is not null && _SelectedModel.Id is not null)
-                            {
-                                var Data = await ShikikomoriApiHandler.ApiClient.Ranobe.GetById((int)_SelectedModel.Id);
 
-                            }
+                                ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(await ShikikomoriApiHandler.ApiClient.Ranobe.GetById((long)_SelectedModel.Id)));
+
+                            
                         }
                         catch (Exception ex)
                         {
