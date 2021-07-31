@@ -2,6 +2,8 @@
 using ShikimoriOneApp.Models;
 using ShikimoriSharp.Classes;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 namespace ShikimoriOneApp.ViewModels
 {
 
@@ -76,31 +78,33 @@ namespace ShikimoriOneApp.ViewModels
                     if (Article is AnimeID)
                     {
                         var anime = Article as AnimeID;
-
                         if (anime?.Russian is not null && anime.Russian?.Length > 0)
                             _OtherTitles?.Add(anime.Russian);
 
                         if (anime?.English is not null)
-                            _OtherTitles?.AddRange(anime.English);
+                            _OtherTitles?.AddRange(anime.English.Where(x=> x is not null));
 
                         if (anime?.Japanese is not null)
-                            _OtherTitles?.AddRange(anime.Japanese);
+                            _OtherTitles?.AddRange(anime.Japanese.Where(x => x is not null));
 
                         if (anime?.Synonyms is not null)
-                            _OtherTitles?.AddRange(anime.Synonyms);
+                            _OtherTitles?.AddRange(anime.Synonyms.Where(x => x is not null));
                     }
 
                     if (Article is MangaID)
                     {
                         var manga = Article as MangaID;
+                        if (manga?.Russian is not null && manga.Russian?.Length > 0)
+                            _OtherTitles?.Add(manga.Russian);
+
                         if (manga?.English is not null)
-                            _OtherTitles?.AddRange(manga.English);
+                            _OtherTitles?.AddRange(manga.English.Where(x => x is not null));
 
                         if (manga?.Japanese is not null)
-                            _OtherTitles?.AddRange(manga.Japanese);
+                            _OtherTitles?.AddRange(manga.Japanese.Where(x => x is not null));
 
                         if (manga?.Synonyms is not null)
-                            _OtherTitles?.AddRange(manga.Synonyms);
+                            _OtherTitles?.AddRange(manga.Synonyms.Where(x => x is not null));
                     }
                 }
                 return _OtherTitles;

@@ -10,7 +10,7 @@
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="Auto"></ColumnDefinition>
 						<ColumnDefinition></ColumnDefinition>
-						<ColumnDefinition Width="200"></ColumnDefinition>
+						<ColumnDefinition Width="Auto"></ColumnDefinition>
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"></RowDefinition>
@@ -136,7 +136,7 @@
 												<ColumnDefinition></ColumnDefinition>
 											</Grid.ColumnDefinitions>
 											<TextBlock  HorizontalAlignment="Left" Text="{Binding Name}"></TextBlock>
-											<TextBlock Grid.Column="1"  HorizontalAlignment="Right"	Text="{Binding Value}"></TextBlock>
+											<TextBlock Grid.Column="1"  HorizontalAlignment="Right" Margin="50,0,0,0"	Text="{Binding Value}"></TextBlock>
 										</Grid>
 									</DataTemplate>
 								</ListBox.DataTemplates>
@@ -160,7 +160,7 @@
 												<ColumnDefinition></ColumnDefinition>
 											</Grid.ColumnDefinitions>
 											<TextBlock  HorizontalAlignment="Left" Text="{Binding Name}"></TextBlock>
-											<TextBlock Grid.Column="1"  HorizontalAlignment="Right"	Text="{Binding Value}"></TextBlock>
+											<TextBlock Grid.Column="1"  HorizontalAlignment="Right" Margin="50,0,0,0"	Text="{Binding Value}"></TextBlock>
 										</Grid>
 									</DataTemplate>
 								</ListBox.DataTemplates>
