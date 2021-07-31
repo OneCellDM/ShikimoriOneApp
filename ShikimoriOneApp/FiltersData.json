@@ -1,0 +1,677 @@
+{
+  "status": [
+    {
+      "value": "anons",
+      "title": "Анонсировано",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "ongoing",
+      "title": "Сейчас выходят",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "released",
+      "title": "Вышедшее",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "latest",
+      "title": "Недавное вышедшее",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "paused",
+      "title": "Приостановлено",
+      "type": [
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "discontinued",
+      "title": "Завершено",
+      "type": [
+        "manga",
+        "ranobe"
+      ]
+    }
+  ],
+  "kind": [
+    {
+      "value": "tv",
+      "title": "TV",
+      "type": [
+        "anime"
+      ]
+    },
+    {
+      "value": "ova",
+      "title": "OVA",
+      "type": [
+        "anime"
+      ]
+    },
+    {
+      "value": "ona",
+      "title": "ONA",
+      "type": [
+        "anime"
+      ]
+    },
+    {
+      "value": "special",
+      "title": "Спешл",
+      "type": [
+        "anime"
+      ]
+    },
+    {
+      "value": "music",
+      "title": "Клипы",
+      "type": [
+        "anime"
+      ]
+    },
+    {
+      "value": "manga",
+      "title": "Манга",
+      "type": [
+        "manga"
+      ]
+    },
+    {
+      "value": "manhwa",
+      "title": "Манхва",
+      "type": [
+        "manga"
+      ]
+    },
+    {
+      "value": "manhua",
+      "title": "Маньхуа",
+      "type": [
+        "manga"
+      ]
+    },
+    {
+      "value": "one_shot",
+      "title": "Ваншот",
+      "type": [
+        "manga"
+      ]
+    },
+    {
+      "value": "doujin",
+      "title": "Додзинси",
+      "type": [
+        "manga"
+      ]
+    },
+    {
+      "value": "novel",
+      "title": "Новелла",
+      "type": [
+        "ranobe"
+      ]
+    },
+    {
+      "value": "light_novel",
+      "title": "Ранобэ",
+      "type": [
+        "ranobe"
+      ]
+    }
+  ],
+  "order": [
+    {
+      "value": "ranked",
+      "title": "По рейтингу",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "popularity",
+      "title": "По популярности",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "name",
+      "title": "По алфавиту",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "aired_on",
+      "title": "По дате выхода",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    },
+    {
+      "value": "value",
+      "title": "По ID",
+      "type": [
+        "anime",
+        "manga",
+        "ranobe"
+      ]
+    }
+  ],
+  "genres": [
+    
+      {
+        "value": 89,
+       
+        "title": "Полиция",
+        "type": ["manga"]
+      },
+      {
+        "value": 8,
+       
+        "title": "Драма",
+        "type": ["anime"]
+      },
+      {
+        "value": 11,
+        "title": "Игры",
+        "type": ["anime"]
+      },
+      {
+        "value": 40,
+       
+        "title": "Психологическое",
+        "type": ["anime"]
+      },
+      {
+        "value": 67,
+       
+        "title": "Психологическое",
+        "type": ["manga"]
+      },
+      {
+        "value": 72,
+        "title": "Демоны",
+        "type": ["manga"]
+      },
+      {
+        "value": 79,
+        "title": "Игры",
+        "type": ["manga"]
+      },
+      {
+        "value": 87,
+        "title": "Дзёсей",
+        "type": ["manga"]
+      },
+      {
+        "value": 2,
+        "title": "Приключения",
+        "type": ["anime"]
+      },
+      {
+        "value": 75,
+        "title": "Юри",
+        "type": ["manga"]
+      },
+      {
+        "value": 47,
+        "title": "Сёнен",
+        "type": ["manga"]
+      },
+      {
+        "value": 49,
+        "title": "Комедия",
+        "type": ["manga"]
+      },
+      {
+        "value": 48,
+        "title": "Сверхъестественное",
+        "type": ["manga"]
+      },
+      {
+        "value": 50,
+        "title": "Драма",
+        "type": ["manga"]
+      },
+      {
+        "value": 51,
+        "title": "Этти",
+        "type": ["manga"]
+      },
+      {
+        "value": 63,
+        "title": "Сёдзе",
+        "type": ["manga"]
+      },
+      {
+        "value": 64,
+        "title": "Вампиры",
+        "type": ["manga"]
+      },
+      {
+        "value": 65,
+        "title": "Яой",
+        "type": ["manga"]
+      },
+      {
+        "value": 19,
+        "title": "Музыка",
+        "type": ["anime"]
+      },
+      {
+        "value": 88,
+        "title": "Самураи",
+        "type": ["manga"]
+      },
+      {
+        "value": 56,
+        "title": "Экшен",
+        "type": ["manga"]
+      },
+      {
+        "value": 86,
+        "title": "Пародия",
+        "type": ["manga"]
+      },
+      {
+        "value": 54,
+        "title": "Повседневность",
+        "type": ["manga"]
+      },
+      {
+        "value": 68,
+        "title": "Приключения",
+        "type": ["manga"]
+      },
+      {
+        "value": 78,
+        "title": "Музыка",
+        "type": ["manga"]
+      },
+      {
+        "value": 80,
+        "title": "Ужасы",
+        "type": ["manga"]
+      },
+      {
+        "value": 83,
+        "title": "Меха",
+        "type": ["manga"]
+      },
+      {
+        "value": 62,
+        "title": "Романтика",
+        "type": ["manga"]
+      },
+      {
+        "value": 55,
+        "title": "Сёнен Ай",
+        "type": ["manga"]
+      },
+      {
+        "value": 69,
+        "title": "Исторический",
+        "type": ["manga"]
+      },
+      {
+        "value": 1,
+        "title": "Экшен",
+        "type": ["anime"]
+      },
+      {
+        "value": 4,
+        "title": "Комедия",
+        "type": ["anime"]
+      },
+      {
+        "value": 6,
+        "title": "Демоны",
+        "type": ["anime"]
+      },
+      {
+        "value": 39,
+        "title": "Полиция",
+        "type": ["anime"]
+      },
+      {
+        "value": 57,
+        "title": "Фэнтези",
+        "type": ["manga"]
+      },
+      {
+        "value": 58,
+        "title": "Магия",
+        "type": ["manga"]
+      },
+      {
+        "value": 71,
+        "title": "Гарем",
+        "type": ["manga"]
+      },
+      {
+        "value": 76,
+        "title": "Спорт",
+        "type": ["manga"]
+      },
+      {
+        "value": 59,
+        "title": "Хентай",
+        "type": ["manga"]
+      },
+      {
+        "value": 29,
+        "title": "Космос",
+        "type": ["anime"]
+      },
+      {
+        "value": 60,
+        "title": "Школа",
+        "type": ["manga"]
+      },
+      {
+        "value": 85,
+        "title": "Космос",
+        "type": ["manga"]
+      },
+      {
+        "value": 9,
+        "title": "Этти",
+        "type": ["anime"]
+      },
+      {
+        "value": 10,
+        "title": "Фэнтези",
+        "type": ["anime"]
+      },
+      {
+        "value": 12,
+        "title": "Хентай",
+        "type": ["anime"]
+      },
+      {
+        "value": 13,
+        "title": "Исторический",
+        "type": ["anime"]
+      },
+      {
+        "value": 14,
+        "title": "Ужасы",
+        "type": ["anime"]
+      },
+      {
+        "value": 16,
+        "title": "Магия",
+        "type": ["anime"]
+      },
+      {
+        "value": 18,
+        "title": "Меха",
+        "type": ["anime"]
+      },
+      {
+        "value": 20,
+        "title": "Пародия",
+        "type": ["anime"]
+      },
+      {
+        "value": 21,
+        "title": "Самураи",
+        "type": ["anime"]
+      },
+      {
+        "value": 22,
+        "title": "Романтика",
+        "type": ["anime"]
+      },
+      {
+        "value": 23,
+        "title": "Школа",
+        "type": ["anime"]
+      },
+      {
+        "value": 27,
+        "title": "Сёнен",
+        "type": ["anime"]
+      },
+      {
+        "value": 30,
+        "title": "Спорт",
+        "type": ["anime"]
+      },
+      {
+        "value": 32,
+        "title": "Вампиры",
+        "type": ["anime"]
+      },
+      {
+        "value": 33,
+        "title": "Яой",
+        "type": ["anime"]
+      },
+      {
+        "value": 34,
+        "title": "Юри",
+        "type": ["anime"]
+      },
+      {
+        "value": 35,
+        "title": "Гарем",
+        "type": ["anime"]
+      },
+      {
+        "value": 53,
+        "title": "Фантастика",
+        "type": ["manga"]
+      },
+      {
+        "value": 28,
+        "title": "Сёнен-ай",
+        "type": ["anime"]
+      },
+      {
+        "value": 36,
+        "title": "Повседневность",
+        "type": ["anime"]
+      },
+      {
+        "value": 26,
+        "title": "Сёдзё-ай",
+        "type": ["anime"]
+      },
+      {
+        "value": 43,
+        "title": "Дзёсей",
+        "type": ["anime"]
+      },
+      {
+        "value": 74,
+        "title": "Смена пола",
+        "type": ["manga"]
+      },
+      {
+        "value": 61,
+        "title": "Додзинси",
+        "type": ["manga"]
+      },
+      {
+        "value": 81,
+        "title": "Триллер",
+        "type": ["manga"]
+      },
+      {
+        "value": 37,
+        "title": "Сверхъестественное",
+        "type": ["anime"]
+      },
+      {
+        "value": 41,
+        "title": "Триллер",
+        "type": ["anime"]
+      },
+      {
+        "value": 73,
+        "title": "Сёдзе Ай",
+        "type": ["manga"]
+      },
+      {
+        "value": 24,
+        "title": "Фантастика",
+        "type": ["anime"]
+      },
+      {
+        "value": 25,
+        "title": "Сёдзё",
+        "type": ["anime"]
+      },
+      {
+        "value": 31,
+        "title": "Супер сила",
+        "type": ["anime"]
+      },
+      {
+        "value": 82,
+        "title": "Супер сила",
+        "type": ["manga"]
+      },
+      {
+        "value": 46,
+        
+        "title": "Детектив",
+        "type": ["manga"]
+      },
+      {
+        "value": 38,
+        
+        "title": "Военное",
+        "type": ["anime"]
+      },
+      {
+        "value": 7,
+        
+        "title": "Детектив",
+        "type": ["anime"]
+      },
+      {
+        "value": 70,
+        
+        "title": "Военное",
+        "type": ["manga"]
+      },
+      {
+        "value": 15,
+        
+        "title": "Детское",
+        "type": ["anime"]
+      },
+      {
+        "value": 77,
+        
+        "title": "Детское",
+        "type": ["manga"]
+      },
+      {
+        "value": 3,
+        
+        "title": "Машины",
+        "type": ["anime"]
+      },
+      {
+        "value": 84,
+        
+        "title": "Машины",
+        "type": ["manga"]
+      },
+      {
+        "value": 17,
+        
+        "title": "Боевые искусства",
+        "type": ["anime"]
+      },
+      {
+        "value": 66,
+        
+        "title": "Боевые искусства",
+        "type": ["manga"]
+      },
+      {
+        "value": 5,
+        
+        "title": "Безумие",
+        "type": ["anime"]
+      },
+      {
+        "value": 90,
+        
+        "title": "Безумие",
+        "type": ["manga"]
+      },
+      {
+        "value": 42,
+      
+        "title": "Сейнен",
+        "type": ["anime"]
+      },
+      {
+        "value": 52,
+        
+        "title": "Сейнен",
+        "type": ["manga"]
+      }
+    
+  ],
+  "rating": [
+    {
+      "value": "g",
+      "title": "G"
+    },
+    {
+      "value": "pg",
+      "title": "PG"
+    },
+    {
+      "value": "pg_13",
+      "title": "PG-13"
+    },
+    {
+      "value": "r",
+      "title": "R-17"
+    },
+    {
+      "value": "r_plus",
+      "title": "R+"
+    },
+    {
+      "value": "rx",
+      "text": "RX"
+    }
+  ]
+}
