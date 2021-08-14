@@ -14,7 +14,7 @@ namespace ShikimoriOneApp.ViewModels.Filters
     {
        
         public AnimeRequestSettings GetRequestSettings(int page)=>new()
-            {
+        {
                 page = page,
                 limit = 50,
                 kind=Kind?.GetActiveValueString(),
@@ -23,7 +23,7 @@ namespace ShikimoriOneApp.ViewModels.Filters
                 order=Order?.ElementAt(SelectedOrderIndex)?.Value,   
                 season=Seasons?.GetActiveValueString(),
                              
-            };     
+        };     
 
        
         public AnimeFiltersViewModel()

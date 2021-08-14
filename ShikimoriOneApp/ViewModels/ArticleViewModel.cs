@@ -1,6 +1,7 @@
 ﻿using ReactiveUI;
 using ShikimoriOneApp.Models;
 using ShikimoriSharp.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -67,7 +68,7 @@ namespace ShikimoriOneApp.ViewModels
         public bool OtherTitlesIsvisible { get => (OtherTitles?.Count > 0); }
         public bool ScreeenShotsIsvisible { get => (ScreenShots?.Count > 0); }
         public bool VideosIsvisible { get => Videos?.Count > 0; }
-       
+   
         public List<string>? OtherTitles
         {
             get
@@ -159,6 +160,7 @@ namespace ShikimoriOneApp.ViewModels
                 if (Article is AnimeID)
                 {
                     var anime = Article as AnimeID;
+                   
                     return string.Format("{0} / {1}", anime?.Name, anime?.Russian);
                 }
 
@@ -195,7 +197,8 @@ namespace ShikimoriOneApp.ViewModels
         public object? Article { get; set; }
 
         public IReactiveCommand? CloseCommand { get; set; } 
-
+        
+        
         public void init()
         {
             CloseCommand = ReactiveCommand.Create(() =>CloseArticleEvent?.Invoke()); 
@@ -204,6 +207,7 @@ namespace ShikimoriOneApp.ViewModels
         public ArticleViewModel(AnimeID animeID)
         {
             Article = animeID;
+            
             init();
         }
 

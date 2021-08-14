@@ -20,13 +20,7 @@ namespace ShikimoriOneApp.ViewModels
             get => _FiltersViewModel;
             set =>
                 _FiltersViewModel = value;
-
-
-
         }
-
-
-
         public ObservableCollection<Models.DataModel> DataCollection { get; set; } = new System.Collections.ObjectModel.ObservableCollection<Models.DataModel>();
 
         private ArticleViewModel? _ArticleViewModel;
@@ -62,8 +56,7 @@ namespace ShikimoriOneApp.ViewModels
                         {
                             if (ShikikomoriApiHandler.ApiClient is not null && _SelectedModel.Id is not null)
                                 ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(await ShikikomoriApiHandler.ApiClient.Animes.GetAnime((int)_SelectedModel.Id)));
-
-                            
+  
                         }
                         catch (Exception ex)
                         {
@@ -85,7 +78,6 @@ namespace ShikimoriOneApp.ViewModels
                     return;
 
                 _Page += -1;
-
                 Load();
             });
             LoadNextPageCommand = ReactiveCommand.Create(() =>

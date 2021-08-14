@@ -24,7 +24,7 @@
 			</Button>
 
 			<Expander Grid.Row="1"  Header="Сезоны">
-				<ListBox Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" Items="{Binding Seasons}">
+				<ListBox  VirtualizationMode="None" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" Items="{Binding Seasons}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<CheckBox IsChecked="{Binding Active}" Content="{Binding Title}"></CheckBox>
@@ -33,7 +33,7 @@
 				</ListBox>
 			</Expander>
 			<Expander Grid.Row="2"  Header="Статус">
-				<ListBox Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" Items="{Binding Status}">
+				<ListBox VirtualizationMode="None" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Disabled" Items="{Binding Status}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 								<CheckBox IsChecked="{Binding Active}" Content="{Binding Title}"></CheckBox>
@@ -43,7 +43,7 @@
 			</Expander>
 
 			<Expander  Grid.Row="3"  Header="Тип">
-				<ListBox Background="Transparent"  ScrollViewer.VerticalScrollBarVisibility="Disabled"  Items="{Binding Kind}">
+				<ListBox VirtualizationMode="None" Background="Transparent"  ScrollViewer.VerticalScrollBarVisibility="Disabled"  Items="{Binding Kind}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<CheckBox IsChecked="{Binding Active}" Content="{Binding Title}"></CheckBox>
@@ -52,7 +52,7 @@
 				</ListBox>
 			</Expander>
 			<Expander Grid.Row="4"  IsVisible="{Binding RatingIsVisible}"  Header="Возрастной Рейтинг">
-				<ListBox Background="Transparent"  ScrollViewer.VerticalScrollBarVisibility="Disabled"  Items="{Binding Rating}">
+				<ListBox VirtualizationMode="None"  Background="Transparent"  ScrollViewer.VerticalScrollBarVisibility="Disabled"  Items="{Binding Rating}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<CheckBox IsChecked="{Binding Active}" Content="{Binding Title}"></CheckBox>
@@ -63,7 +63,7 @@
 			</Expander>
 
 			<Expander Grid.Row="5"   Header="Сортировка">
-				<ListBox    ScrollViewer.VerticalScrollBarVisibility="Disabled"  SelectedIndex="{Binding  SelectedOrderIndex}" Items="{Binding Order}" Background="Transparent">
+				<ListBox VirtualizationMode="None"   ScrollViewer.VerticalScrollBarVisibility="Disabled"  SelectedIndex="{Binding  SelectedOrderIndex}" Items="{Binding Order}" Background="Transparent">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<TextBlock  Text="{Binding Title}"></TextBlock>
@@ -73,7 +73,7 @@
 			</Expander>
 
 			<Expander Grid.Row="6"   Header="Жанры">
-				<ListBox Background="Transparent"  ScrollViewer.VerticalScrollBarVisibility="Disabled"  Items="{Binding Genres}">
+				<ListBox VirtualizationMode="None" Background="Transparent"  ScrollViewer.VerticalScrollBarVisibility="Disabled"  Items="{Binding Genres}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<CheckBox IsChecked="{Binding Active}" Content="{Binding Title}"></CheckBox>

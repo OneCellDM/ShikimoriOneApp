@@ -28,7 +28,7 @@ namespace ShikimoriOneApp.Models
                 var data = await _httpClient.GetByteArrayAsync(url);
                 return new MemoryStream(data);
             }
-            catch(Exception){ throw;}
+            catch(Exception ex){ throw ex;}
             
             finally{ _httpClient.Dispose();}
         }
