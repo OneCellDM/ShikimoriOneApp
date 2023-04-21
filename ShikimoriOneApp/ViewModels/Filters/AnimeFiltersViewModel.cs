@@ -21,8 +21,7 @@ namespace ShikimoriOneApp.ViewModels.Filters
                 status=Status?.GetActiveValueString(),
                 genre=Genres?.GetActiveValueString(),
                 order=Order?.ElementAt(SelectedOrderIndex)?.Value,   
-                season=Seasons?.GetActiveValueString(),
-                             
+                season=Seasons?.GetActiveValueString(),            
         };     
 
        

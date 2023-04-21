@@ -40,7 +40,7 @@ namespace ShikimoriOneApp.ViewModels
                     {
                         _Poster = new ImageModel()
                         {
-                            Url = "https://shikimori.one/"+url,
+                            Url = "https://shikimori.me/"+url,
                         };
                     }
                 }
@@ -145,7 +145,7 @@ namespace ShikimoriOneApp.ViewModels
 
                         if(anime is not null)
                         foreach(var screenshot in anime.Screens)
-                            _ScreenShots.Add(new ImageModel() { Url = "https://shikimori.one/"+screenshot.Preview });              
+                            _ScreenShots.Add(new ImageModel() { Url = "https://shikimori.me/"+screenshot.Preview });              
                     }
 
                 }

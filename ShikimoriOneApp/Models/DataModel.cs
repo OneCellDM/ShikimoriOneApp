@@ -45,7 +45,7 @@ namespace ShikimoriOneApp.Models
 
             ImageModel = new ImageModel()
             {
-                Url = "https://shikimori.one/"+this.Image?.Original
+                Url = "https://shikimori.me/"+this.Image?.Original
             };
         }
         public DataModel(ShikimoriSharp.Classes.Manga manga)
@@ -67,7 +67,7 @@ namespace ShikimoriOneApp.Models
 
             ImageModel = new ImageModel()
             {
-                Url = "https://shikimori.one"+this.Image?.Original
+                Url = "https://shikimori.me"+this.Image?.Original
             };
         }
         public void Dispose()

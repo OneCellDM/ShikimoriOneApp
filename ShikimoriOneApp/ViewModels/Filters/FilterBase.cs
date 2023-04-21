@@ -97,7 +97,8 @@ namespace ShikimoriOneApp.ViewModels.Filters
         
         public void Subscribe()
         {
-            var action=new System.Action<IFilterObject>((x)=>x.FilterActiveEvent+=FilterEventHandler);
+            var action= new System.Action<IFilterObject>((x)=>x.FilterActiveEvent+=FilterEventHandler);
+
             Status?.ForEach(action);
             Genres?.ForEach(action);
             Order?.ForEach(action);

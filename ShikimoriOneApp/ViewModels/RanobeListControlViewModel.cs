@@ -1,5 +1,4 @@
-﻿
-using ReactiveUI;
+﻿using ReactiveUI;
 using ShikimoriOneApp.Filters;
 using ShikimoriOneApp.ViewModels.Filters;
 using System;
@@ -11,105 +10,93 @@ using System.Threading.Tasks;
 
 namespace ShikimoriOneApp.ViewModels
 {
-    public class RanobeListControlViewModel : ViewModelBase
-    {
+	public class RanobeListControlViewModel : ViewModelBase
+	{
+		private Filters.RanobeFiltersViewModel? _FiltersViewModel;
 
-        private Filters.RanobeFiltersViewModel? _FiltersViewModel;
-        public Filters.RanobeFiltersViewModel? Filters
-        {
-            get => _FiltersViewModel;
-            set => _FiltersViewModel = value;
-        }
+		public Filters.RanobeFiltersViewModel? Filters
+		{
+			get => _FiltersViewModel;
+			set => _FiltersViewModel = value;
+		}
 
+		public ObservableCollection<Models.DataModel> DataCollection { get; set; } = new System.Collections.ObjectModel.ObservableCollection<Models.DataModel>();
 
+		private int _Page = 1;
 
-        public ObservableCollection<Models.DataModel> DataCollection { get; set; } = new System.Collections.ObjectModel.ObservableCollection<Models.DataModel>();
+		private bool _IsLoadingPanelVisible;
 
+		private Models.DataModel? _SelectedModel;
 
-        private int _Page = 1;
+		public Models.DataModel? SelectedModel
+		{
+			get => _SelectedModel;
+			set
+			{
+				_SelectedModel = value;
+				if (_SelectedModel is not null)
+					Task.Run(async () =>
+					{
+						try
+						{
+							if (ShikikomoriApiHandler.ApiClient is not null && _SelectedModel.Id is not null)
 
-        private bool _IsLoadingPanelVisible;
+								ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(await ShikikomoriApiHandler.ApiClient.Ranobe.GetById((long)_SelectedModel.Id)));
+						}
+						catch (Exception ex)
+						{
+							Debug.WriteLine(ex);
+						}
+					});
+			}
+		}
 
-        private Models.DataModel? _SelectedModel;
+		public bool IsLoadingPanelVisible { get => _IsLoadingPanelVisible; set => this.RaiseAndSetIfChanged(ref _IsLoadingPanelVisible, value); }
 
-        public Models.DataModel? SelectedModel
-        {
-            get => _SelectedModel;
-            set
-            {
-                _SelectedModel = value;
-                if (_SelectedModel is not null)
-                    Task.Run(async () =>
-                    {
-                        try
-                        {
-                            if (ShikikomoriApiHandler.ApiClient is not null && _SelectedModel.Id is not null)
+		public RanobeListControlViewModel(RanobeFiltersViewModel filters)
+		{
+			Filters = filters;
+			Load();
+			LoadPreviousPageCommand = ReactiveCommand.Create(() =>
+			{
+				if (_Page <= 1)
+					return;
 
-                                ExtensionMethods.CallOpenArticleEvent(new ArticleViewModel(await ShikikomoriApiHandler.ApiClient.Ranobe.GetById((long)_SelectedModel.Id)));
+				_Page += -1;
 
-                            
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.WriteLine(ex);
-                        }
-                    });
+				Load();
+			});
+			LoadNextPageCommand = ReactiveCommand.Create(() =>
+			{
+				_Page += 1;
+				Load();
+			});
+			Filters.FilterChanged += delegate () { _Page = 1; Load(); };
+		}
 
-            }
-        }
-        public bool IsLoadingPanelVisible { get => _IsLoadingPanelVisible; set => this.RaiseAndSetIfChanged(ref _IsLoadingPanelVisible, value); }
-        public RanobeListControlViewModel(RanobeFiltersViewModel filters)
-        {
+		public IReactiveCommand LoadNextPageCommand { get; set; }
+		public IReactiveCommand LoadPreviousPageCommand { get; set; }
 
-            Filters = filters;
-            Load();
-            LoadPreviousPageCommand = ReactiveCommand.Create(() =>
-            {
-                if (_Page <= 1)
-                    return;
+		public void Load()
+		{
+			IsLoadingPanelVisible = true;
 
-                _Page += -1;
+			DataCollection.Clear();
 
-                Load();
-            });
-            LoadNextPageCommand = ReactiveCommand.Create(() =>
-            {
-                _Page += 1;
-                Load();
-            });
-            Filters.FilterChanged += delegate () { _Page =1; Load(); };
-        }
+			try
+			{
+				if (ShikikomoriApiHandler.ApiClient is not null && Filters is not null)
+				{
+					var res = ShikikomoriApiHandler.ApiClient.Ranobe.GetBySearch(Filters.GetRequestSettings(_Page)).GetAwaiter();
+					res.OnCompleted(() =>
+					{
+						DataCollection.AddRange(res.GetResult());
+					});
+				}
+			}
+			catch (Exception ex) { Debug.WriteLine(ex); }
 
-        public IReactiveCommand LoadNextPageCommand { get; set; }
-        public IReactiveCommand LoadPreviousPageCommand { get; set; }
-        public void Load()
-        {
-
-
-            IsLoadingPanelVisible = true;
-
-            DataCollection.Clear();
-
-
-            Task.Run(async () =>
-             {
-                 try
-                 {
-                     if (ShikikomoriApiHandler.ApiClient is not null&&Filters is not null)
-                     {
-                         
-                         var res = await ShikikomoriApiHandler.ApiClient.Ranobe.GetBySearch(Filters.GetRequestSettings(_Page));
-                         DataCollection.AddRange(res);
-                     }
-                 }
-                 catch (Exception ex) { Debug.WriteLine(ex); }
-
-                 IsLoadingPanelVisible = false;
-
-             });
-
-        }
-
-
-    }
+			IsLoadingPanelVisible = false;
+		}
+	}
 }

@@ -17,7 +17,9 @@ namespace ShikimoriOneApp.Filters
 
         [JsonProperty("type")]
         public List<string>? Type { get; set; }
-       
+
+        public event IFilterObject.FilterActive? FilterActiveEvent;
+
         public bool FilterActiveEventIsEnable { get;set; }
         public bool Active { 
             get =>_Active;
@@ -29,6 +31,6 @@ namespace ShikimoriOneApp.Filters
                         FilterActiveEvent?.Invoke(this);
             } 
         }
-        public event IFilterObject.FilterActive? FilterActiveEvent;
+        
     }
 }

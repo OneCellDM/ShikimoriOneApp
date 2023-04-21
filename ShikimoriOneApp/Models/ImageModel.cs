@@ -59,6 +59,4 @@ namespace ShikimoriOneApp.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
-
-
 }

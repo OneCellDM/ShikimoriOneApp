@@ -4,148 +4,154 @@ using System.Diagnostics;
 
 namespace ShikimoriOneApp.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
-    {
-        private bool _ArticleIsVisible;
-        private ArticleViewModel? _ArticleContext;
-        private AnimeFiltersViewModel? _AnimeFiltersViewModel;
-        private MangaFiltersViewModel? _MangaFiltersViewModel;
+	public class MainWindowViewModel : ViewModelBase
+	{
+		private bool _ArticleIsVisible;
+		private ArticleViewModel? _ArticleContext;
+		private AnimeFiltersViewModel? _AnimeFiltersViewModel;
+		private MangaFiltersViewModel? _MangaFiltersViewModel;
 
-        private RanobeFiltersViewModel? _RanobeFiltersViewModel;
+		private RanobeFiltersViewModel? _RanobeFiltersViewModel;
 
-        private AnimeListControlViewModel? _AnimeListControlViewModel;
+		private AnimeListControlViewModel? _AnimeListControlViewModel;
 
-        private MangaListControlViewModel? _MangaListControlViewModel;
+		private MangaListControlViewModel? _MangaListControlViewModel;
 
-        private RanobeListControlViewModel? _RanobeListControlViewModel;
+		private RanobeListControlViewModel? _RanobeListControlViewModel;
 
-        private object? _Dcontext;
-        private object? _FilterMenuContext;
+		private object? _Dcontext;
+		private object? _FilterMenuContext;
 
-        public Filters.RanobeFiltersViewModel? RanobeFiltersViewModel
-        {
-            get => _RanobeFiltersViewModel;
-            set => _RanobeFiltersViewModel = value;
-        }
+		public Filters.RanobeFiltersViewModel? RanobeFiltersViewModel
+		{
+			get => _RanobeFiltersViewModel;
+			set => _RanobeFiltersViewModel = value;
+		}
 
-        public Filters.AnimeFiltersViewModel? AnimeFiltersViewModel
-        {
-            get => _AnimeFiltersViewModel;
-            set => _AnimeFiltersViewModel = value;
-        }
+		public Filters.AnimeFiltersViewModel? AnimeFiltersViewModel
+		{
+			get => _AnimeFiltersViewModel;
+			set => _AnimeFiltersViewModel = value;
+		}
 
-        public Filters.MangaFiltersViewModel? MangaFiltersViewModel
-        {
-            get => _MangaFiltersViewModel;
-            set => _MangaFiltersViewModel = value;
-        }
+		public Filters.MangaFiltersViewModel? MangaFiltersViewModel
+		{
+			get => _MangaFiltersViewModel;
+			set => _MangaFiltersViewModel = value;
+		}
 
-        public bool ArticleIsVisible
-        {
-            get => _ArticleIsVisible;
-            set => this.RaiseAndSetIfChanged(ref _ArticleIsVisible, value);
-        }
+		public bool ArticleIsVisible
+		{
+			get => _ArticleIsVisible;
+			set => this.RaiseAndSetIfChanged(ref _ArticleIsVisible, value);
+		}
 
-        public ArticleViewModel? ArticleContext
-        {
-            get => _ArticleContext;
-            set => this.RaiseAndSetIfChanged(ref _ArticleContext, value);
-        }
+		public ArticleViewModel? ArticleContext
+		{
+			get => _ArticleContext;
+			set => this.RaiseAndSetIfChanged(ref _ArticleContext, value);
+		}
 
-        public object? FilterMenuContext
-        {
-            get => _FilterMenuContext;
-            set => this.RaiseAndSetIfChanged(ref _FilterMenuContext, value);
-        }
+		public object? FilterMenuContext
+		{
+			get => _FilterMenuContext;
+			set => this.RaiseAndSetIfChanged(ref _FilterMenuContext, value);
+		}
 
-        public object? Dcontext
-        {
-            get => _Dcontext;
-            set => this.RaiseAndSetIfChanged(ref _Dcontext, value);
-        }
+		public object? Dcontext
+		{
+			get => _Dcontext;
+			set => this.RaiseAndSetIfChanged(ref _Dcontext, value);
+		}
 
-        private int _MainSelectedIndex = 1;
+		private int _MainSelectedIndex = 1;
 
-        public int MainMenuSelectedIndex
-        {
-            get => _MainSelectedIndex;
-            set
-            {
-                MangaFiltersViewModel?.EnableOrDisableEvents(false);
-                AnimeFiltersViewModel?.EnableOrDisableEvents(false);
-                RanobeFiltersViewModel?.EnableOrDisableEvents(false);
-                switch (value)
-                {
-                    case 0:
-                        {
-                            FilterMenuContext = MangaFiltersViewModel;
-                            Dcontext = _MangaListControlViewModel;
+		public int MainMenuSelectedIndex
+		{
+			get => _MainSelectedIndex;
+			set
+			{
+				MangaFiltersViewModel?.EnableOrDisableEvents(false);
+				AnimeFiltersViewModel?.EnableOrDisableEvents(false);
+				RanobeFiltersViewModel?.EnableOrDisableEvents(false);
+				switch (value)
+				{
+					case 0:
+						{
+							if (_MangaListControlViewModel is null)
+							{
+								_MangaFiltersViewModel = new();
+								_MangaListControlViewModel = new(_MangaFiltersViewModel);
+							}
+							FilterMenuContext = MangaFiltersViewModel;
+							Dcontext = _MangaListControlViewModel;
 
-                            MangaFiltersViewModel?.EnableOrDisableEvents(true);
-                            break;
-                        }
-                    case 1:
-                        {
-                            FilterMenuContext = AnimeFiltersViewModel;
-                            Dcontext = _AnimeListControlViewModel;
+							MangaFiltersViewModel?.EnableOrDisableEvents(true);
+							break;
+						}
+					case 1:
+						{
+							if (_AnimeListControlViewModel is null)
+							{
+								_AnimeFiltersViewModel = new();
+								_AnimeListControlViewModel = new(_AnimeFiltersViewModel);
+							}
+							FilterMenuContext = AnimeFiltersViewModel;
+							Dcontext = _AnimeListControlViewModel;
 
-                            AnimeFiltersViewModel?.EnableOrDisableEvents(true);
-                            break;
-                        }
-                    case 2:
-                        {
-                            FilterMenuContext = RanobeFiltersViewModel;
-                            Dcontext = _RanobeListControlViewModel;
+							AnimeFiltersViewModel?.EnableOrDisableEvents(true);
+							break;
+						}
+					case 2:
+						{
+							if (_RanobeListControlViewModel is null)
+							{
+								_RanobeFiltersViewModel = new();
 
-                            RanobeFiltersViewModel?.EnableOrDisableEvents(true);
-                            break;
-                        }
-                }
-                _MainSelectedIndex = value;
-            }
-        }
+								_RanobeListControlViewModel = new(_RanobeFiltersViewModel);
+							}
 
-        public MainWindowViewModel() => InitViews();
+							FilterMenuContext = RanobeFiltersViewModel;
+							Dcontext = _RanobeListControlViewModel;
 
-        private void InitViews()
-        {
-            _RanobeFiltersViewModel = new();
-            _MangaFiltersViewModel = new();
-            _AnimeFiltersViewModel = new();
+							RanobeFiltersViewModel?.EnableOrDisableEvents(true);
+							break;
+						}
+				}
+				_MainSelectedIndex = value;
+			}
+		}
 
-            _AnimeListControlViewModel = new(_AnimeFiltersViewModel);
-            _MangaListControlViewModel = new(_MangaFiltersViewModel);
-            _RanobeListControlViewModel = new(_RanobeFiltersViewModel);
+		public MainWindowViewModel() => InitViews();
 
-            FilterMenuContext = AnimeFiltersViewModel;
+		private void InitViews()
+		{
+			MainMenuSelectedIndex = 0;
+			ExtensionMethods.OpenArticleEvent += OpenArticleEventHandler;
+		}
 
-            Dcontext = _AnimeListControlViewModel;
+		public void OpenArticleEventHandler(ArticleViewModel? Model)
+		{
+			if (Model is not null)
+			{
+				ArticleContext = Model;
+				Model.CloseArticleEvent += CloseArticleEventHandler;
+				ArticleIsVisible = true;
+			}
+			else
+			{
+				ArticleIsVisible = false;
+				Debug.WriteLine("Article Model Is NULL");
+			}
+		}
 
-            ExtensionMethods.OpenArticleEvent += OpenArticleEventHandler;
-        }
+		private void CloseArticleEventHandler()
+		{
+			if (ArticleContext is not null)
+				ArticleContext.CloseArticleEvent -= CloseArticleEventHandler;
 
-        public void OpenArticleEventHandler(ArticleViewModel? Model)
-        {
-            if (Model is not null)
-            {
-                ArticleContext = Model;
-                Model.CloseArticleEvent += CloseArticleEventHandler;
-                ArticleIsVisible = true;
-            }
-            else
-            {
-                ArticleIsVisible = false;
-                Debug.WriteLine("Article Model Is NULL");
-            }
-        }
-
-        private void CloseArticleEventHandler()
-        {
-            if (ArticleContext is not null)
-                ArticleContext.CloseArticleEvent -= CloseArticleEventHandler;
-
-            ArticleContext = null;
-            ArticleIsVisible = false;
-        }
-    }
+			ArticleContext = null;
+			ArticleIsVisible = false;
+		}
+	}
 }
